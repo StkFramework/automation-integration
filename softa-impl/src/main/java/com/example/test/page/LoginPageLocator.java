@@ -6,20 +6,20 @@ import com.softtek.automation.element.UIElement;
 
 public class LoginPageLocator {
 
-	@ElementMap(how = How.XPATH, using = ".//*[@id='email']")
-	public UIElement login_username_txt;
+	@ElementMap(how = How.NAME, using = "USERNAME")
+	public UIElement userNameTxt;
 
-	@ElementMap(how = How.XPATH, using = ".//*[@id='pass']")
-	public UIElement login_password_txt;
-
-	@ElementMap(
-			how = How.XPATH,
-			using = ".//*[@id='loginbutton']/input")
-	public UIElement login_submit_btn;
+	@ElementMap(how = How.NAME, using = "PASSWORD")
+	public UIElement passwordTxt;
 
 	@ElementMap(
 			how = How.XPATH,
-			using = ".//*[@id='globalContainer']//div[contains(text(),'La contraseña que ingresaste es incorrecta.' )]")
-	public UIElement login_access_denied_mssge;
+			using = ".//*[@id='LOGON_SUBMIT_BUTTON_CAPTION.TXT']")
+	public UIElement submitBtn;
+
+	@ElementMap(
+			how = How.XPATH,
+				using = "html/body/table/tbody/tr[3]/td/form/table/tbody/tr[2]/td[3]")
+	public UIElement accessDeniedMssge;
 
 }

@@ -17,7 +17,7 @@
         
      <!-- seleniumCtx.xml -->
      
-     <bean id ="cucumberCommonUIStepsAdapter"  class="com.softtek.automation.steps.cucumber.CucumberCommonUIStepsAdapter">
+     <bean id ="cucumberCommonUIStepsAdapter"  class="com.softtek.automation.steps.cucumber.CucumberCommonUIStepsAdapter" primary="true">
 		<property name="UIActions" ref="IUActions" />	
 		<property name="UIElementFactory" ref="UIElementFactory" />		
 	</bean>	
@@ -58,7 +58,7 @@
 	</bean>
     	
 	<bean id="viewSourcesPath" class="java.lang.String">
-  		<constructor-arg type="java.lang.String" value="com.example.test.steps" />
+  		<constructor-arg type="java.lang.String" value="com.example.test.page" />
 	</bean>		
 	
 	<bean id ="applicationsSet"  class="com.softtek.automation.ApplicationsSet">		
@@ -77,18 +77,19 @@
 		<property name="environment" ref="executionEnvironment" />
 		<property name="properties">
 			<props>
-				<prop key="url.prod">www.facebook.com</prop>
-				<prop key="url.test">www.facebook.com</prop>			
-				<prop key="url.uat">www.facebook.com</prop>
+				<prop key="url.prod">https://www.facebook.com/</prop>
+				<prop key="url.test">https://ppm.softtek.com/</prop>			
+				<prop key="url.uat">https://login.live.com</prop>
 			</props>
 		</property>
 	</bean>
 	
 	<bean id ="application2"  class="com.softtek.automation.Application">
-		<property name="name" value="hotmail" />
+		<property name="name" value="application2" />
+		<property name="environment" ref="executionEnvironment" />
 		<property name="properties">
 			<props>
-				<prop key="URL">www.hotmail.com</prop>			
+				<prop key="url.test">https://login.live.com/</prop>			
 			</props>
 		</property>
 	</bean>
