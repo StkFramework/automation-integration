@@ -8,6 +8,9 @@
        	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
        	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    
+    <context:component-scan base-package="com.softtek" />
+	<context:annotation-config />  
         
     <!-- coreCtx.xml  -->     
      <bean id ="ExecutionContext"  class="com.softtek.automation.ExecutionContext">
@@ -18,7 +21,7 @@
      <!-- seleniumCtx.xml -->
      
      <bean id ="cucumberCommonUIStepsAdapter"  class="com.softtek.automation.steps.cucumber.CucumberCommonUIStepsAdapter" primary="true">
-		<property name="UIActions" ref="IUActions" />	
+		<property name="UIActions" ref="UIActions" />	
 		<property name="UIElementFactory" ref="UIElementFactory" />		
 	</bean>	
 	
@@ -26,8 +29,9 @@
 		<property name="viewsSource" ref="viewSourcesPath" />						
 	</bean>
 	
-	<bean id ="IUActions"  class="com.softtek.automation.actions.selenium.SeleniumUIActions">	
-		<property name="testDriver" ref="testDriver" />					
+	<bean id ="UIActions"  class="com.softtek.automation.actions.selenium.SeleniumUIActions" >	
+		<property name="testDriver" ref="testDriver" />	
+		<property name="UIElementsVerification" ref="UIElementsVerification"/>				
 	</bean>
 	
 	<bean id ="testDriver"  class="com.softtek.automation.driver.selenium.SeleniumDriver" >	
@@ -44,9 +48,14 @@
 		<property name="ExecutionContext" ref="ExecutionContext" />		
 	</bean>
 	
-	<bean id ="AppActions"  class="com.softtek.automation.actions.selenium.SeleniumAppActions">
+	<bean id ="AppActions"  class="com.softtek.automation.actions.selenium.SeleniumAppActions" autowire="byName">
 		<property name="testDriver" ref="testDriver" />
 		<property name="applicationsSet" ref="applicationsSet" />		
+	</bean>
+	
+	<bean id ="UIElementsVerification"  class="com.softtek.automation.uiverifications.SeleniumUIElementsVerifications" autowire="byName">
+		<property name="testDriver" ref="testDriver" />
+		<property name="viewsSource" ref="viewSourcesPath" />		
 	</bean>
      
      <!--  -->
@@ -95,6 +104,21 @@
 	</bean>
 	
 	
+	<!--
+	<bean id ="dashBoardTestSteps"  class="com.example.test.steps.DashboardTestSteps" primary="true">
+		<property name="UIActions" ref="UIActions" />
+		<property name="ExecutionContext" ref="ExecutionContext" />	
+		<property name="UIElementFactory" ref="UIElementFactory" />	
+		<property name="AppActions" ref="AppActions" />
+	</bean>
 	
+	  
+	<bean id ="junitTest"  class="com.example.test.JUnitTest" >
+		<property name="UIActions" ref="UIActions" />
+		<property name="ExecutionContext" ref="ExecutionContext" />	
+		<property name="UIElementFactory" ref="UIElementFactory" />	
+		<property name="AppActions" ref="AppActions" />	
+	</bean>
+	-->
 	
 </beans>

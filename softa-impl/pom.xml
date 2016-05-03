@@ -15,6 +15,7 @@
 	    <cucumber.java.version>1.1.5</cucumber.java.version>
 	    <java.version>1.7</java.version>
 	    <junit.version>4.11</junit.version>	    
+	    <slf4j.version>1.6.4</slf4j.version>
 	    <spring.version>3.2.3.RELEASE</spring.version>	    
 	    <surefire.fork.count>6</surefire.fork.count>
   	</properties>
@@ -29,6 +30,24 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
+	
+	<!-- Log Dependencies -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+	
 		
 	  <!-- Selenium Dependencies -->
 		<dependency>

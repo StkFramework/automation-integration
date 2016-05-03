@@ -6,10 +6,8 @@ import com.softtek.automation.element.UIElement;
 
 public class DashBoardPageView {
 
-	@ElementMap(how = How.XPATH, using = ".//*[@id='Dashboard - Default']")
+	@ElementMap(using = ".//*[@id='Dashboard - Default']", verify = true )
 	public static UIElement mainHeader;
 
-	@ElementMap(using = "")
-	public static UIElement openDashBoardLink;
-
+	
 }

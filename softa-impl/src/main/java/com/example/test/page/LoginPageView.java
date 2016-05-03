@@ -4,22 +4,20 @@ import com.softtek.automation.anotations.ElementMap;
 import com.softtek.automation.element.How;
 import com.softtek.automation.element.UIElement;
 
-public class LoginPageLocator {
+public class LoginPageView {
 
-	@ElementMap(how = How.NAME, using = "USERNAME")
+	@ElementMap(how = How.NAME, using = "USERNAME", verify = true)
 	public UIElement userNameTxt;
 
-	@ElementMap(how = How.NAME, using = "PASSWORD")
+	@ElementMap(how = How.NAME, using = "PASSWORD", verify = true)
 	public UIElement passwordTxt;
 
-	@ElementMap(
-			how = How.XPATH,
-			using = ".//*[@id='LOGON_SUBMIT_BUTTON_CAPTION.TXT']")
+	@ElementMap(using = ".//*[@id='LOGON_SUBMIT_BUTTON_CAPTION.TXT']", verify = true)
 	public UIElement submitBtn;
 
 	@ElementMap(
 			how = How.XPATH,
-				using = "html/body/table/tbody/tr[3]/td/form/table/tbody/tr[2]/td[3]")
+				using = "html/body/table/tbody/tr[3]/td/form/table/tbody/tr[2]/td[3]", verify = true)
 	public UIElement accessDeniedMssge;
 
 }
