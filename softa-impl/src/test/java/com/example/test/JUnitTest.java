@@ -47,9 +47,9 @@ public class JUnitTest extends AbstractSteps{
 		
 		TestLogger.INFO(this, "Running testDashboard() in JUnit framework");
 		
-		assertTrue(UIActions.TypeTextOnElement(UIElementFactory.createElement("LoginPageLocator.userNameTxt"), "jose.san"));
-		assertTrue(UIActions.TypeTextOnElement(UIElementFactory.createElement("LoginPageLocator.passwordTxt"), "TePa181115"));
-		assertTrue(UIActions.ClickOnElement(UIElementFactory.createElement("LoginPageLocator.submitBtn")));
+		assertTrue(UIActions.TypeTextOnElement(UIElementFactory.createElement("LoginPageView.userNameTxt"), "xxxxx"));
+		assertTrue(UIActions.TypeTextOnElement(UIElementFactory.createElement("LoginPageView.passwordTxt"), "xxxxx"));
+		assertTrue(UIActions.ClickOnElement(UIElementFactory.createElement("LoginPageView.submitBtn")));
 		assertTrue(AppActions.WaitForSeconds("10"));
 		assertTrue(UIActions.ElementContainsText(UIElementFactory.createElement("DashBoardPageView.mainHeader"), "Dashboard - Default"));
 		assertTrue(AppActions.WaitForSeconds("2"));

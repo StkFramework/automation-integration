@@ -7,11 +7,13 @@ Feature: login-test
 	
 	
 	@test
-	Scenario: TC003 - Validate login in a step 
+	Scenario: TC000 - Validate login in a step 
 	Given I open application 'application1'
 	When I wait '5' seconds		
 	When I verify UI view 'LoginPageView'
+	When I wait '5' seconds
 	
+	Then I close current application
 	
 	@ignore
 	Scenario: TC001 - Check close app
@@ -26,8 +28,8 @@ Feature: login-test
 		Given I open application 'application1'
 		When I wait '5' seconds	
 			
-		When I type text 'XXXX' on element 'LoginPageView.userNameTxt'
-		Then I type text 'XXXX' on element 'LoginPageView.passwordTxt'
+		When I type text 'xxxxxx' on element 'LoginPageView.userNameTxt'
+		Then I type text 'xxxxxx' on element 'LoginPageView.passwordTxt'
 		And I click on 'LoginPageView.submitBtn'
 		And I wait '10' seconds
 		And Element 'DashBoardPageView.mainHeader' has text 'Dashboard - Default'		
