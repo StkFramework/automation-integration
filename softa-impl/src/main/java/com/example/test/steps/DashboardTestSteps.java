@@ -45,10 +45,13 @@ public class DashboardTestSteps extends AbstractSteps{
 		assertTrue(AppActions.OpenApplication("application1"));
 		assertTrue(AppActions.WaitForSeconds("5"));
 		assertTrue(UIActions.TypeTextOnElement(UIElementFactory.createElement("LoginPageView.userNameTxt"), "jose.san"));
-		assertTrue(UIActions.TypeTextOnElement(UIElementFactory.createElement("LoginPageView.passwordTxt"), ""));
-		assertTrue(UIActions.ClickOnElement(UIElementFactory.createElement("LoginPageView.submitBtn")));
-		assertTrue(AppActions.WaitForSeconds("10"));
-		assertTrue(UIActions.ElementContainsText(UIElementFactory.createElement("DashBoardPageView.mainHeader"), "Dashboard - Default"));
+		assertTrue(UIActions.TypeTextOnElement(UIElementFactory.createElement("LoginPageView.passwordTxt"), "XXXXX"));
+		
+		//assertTrue(UIActions.ClickOnElement(UIElementFactory.createElement("LoginPageView.submitBtn")));
+		assertTrue(UIActions.ClickOnElement(".//*[@id='LOGON_SUBMIT_BUTTON_CAPTION.TXT']", null));
+		
+		assertTrue(AppActions.WaitForSeconds("10"));		
+		assertTrue(UIActions.ElementContainsText(UIElementFactory.createElement("DashBoardPageView.mainHeader"), "Dashboard - Default"));		
 		assertTrue(AppActions.WaitForSeconds("2"));
 		assertTrue(AppActions.CloseCurrentApp());
 		
@@ -64,9 +67,9 @@ public class DashboardTestSteps extends AbstractSteps{
 		
 		
 		
-		String text1 = (String) assertTrue(UIActions.GetText(UIElementFactory.createElement("DashBoardPageView.mainHeader")));
+		//String text1 = (String) assertTrue(UIActions.GetText(UIElementFactory.createElement("DashBoardPageView.mainHeader")));
 		
-		String text2 = (String) UIActions.GetText(UIElementFactory.createElement("DashBoardPageView.mainHeader")).getObjectResult();		
+		//String text2 = (String) UIActions.GetText(UIElementFactory.createElement("DashBoardPageView.mainHeader")).getObjectResult();		
 		
 		//TestLogger.INFO(this, "text1 -> " + text1);
 		//TestLogger.INFO(this, "text2 -> " + text2);

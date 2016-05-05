@@ -6,7 +6,7 @@ Feature: login-test
 	#When I wait '5' seconds	
 	
 	
-	@test
+	@ignore
 	Scenario: TC000 - Validate login in a step 
 	Given I open application 'application1'
 	When I wait '5' seconds		
@@ -36,7 +36,7 @@ Feature: login-test
 		And I wait '2' seconds
 		And I close current application
 	
-	@ignore
+	@test
 	Scenario: TC003 - Validate login in a step 	
 	When I validate dashboard
 	 
