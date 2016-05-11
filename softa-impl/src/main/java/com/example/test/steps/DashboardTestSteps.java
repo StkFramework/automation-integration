@@ -4,6 +4,7 @@ import com.softtek.automation.steps.AbstractSteps;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.example.test.business.DashBoardBusinessCase;
 import com.softtek.automation.TestLogger;
 import com.softtek.automation.actions.AppActions;
 import com.softtek.automation.actions.UIActions;
@@ -26,6 +27,10 @@ public class DashboardTestSteps extends AbstractSteps{
 	@When("^(?i:I validate dashboard)$")
 	public void i_validate_dashboard() throws Exception {
 		
+		
+		assertTrue(new DashBoardBusinessCase().run(null));
+		
+		
 		/*
 		When I type text 'jose.san' on element 'LoginPageView.userNameTxt'
 		Then I type text 'TePa181115' on element 'LoginPageView.passwordTxt'
@@ -40,6 +45,7 @@ public class DashboardTestSteps extends AbstractSteps{
 		
 		//TestLogger.INFO(this, "i_validate_dashboard ...");
 		
+		/*
 		TestLogger.getInstance(this).info("i_validate_dashboard ...");
 		
 		assertTrue(AppActions.OpenApplication("application1"));
@@ -55,7 +61,7 @@ public class DashboardTestSteps extends AbstractSteps{
 		assertTrue(AppActions.WaitForSeconds("2"));
 		assertTrue(AppActions.CloseCurrentApp());
 		
-		
+		*/
 		
 		
 		//assertTrue(UIActions.ClickOnElement(UIElementFactory.createElement("DashBoardPageView.openDashBoardLink")));			
