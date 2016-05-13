@@ -17,7 +17,7 @@ public class LoginPageView {
 
 	@ElementMap(
 			how = How.XPATH,
-				using = "html/body/table/tbody/tr[3]/td/form/table/tbody/tr[2]/td[4]")
+				using = "html/body/table/tbody/tr[3]/td/form/table/tbody/tr[2]/td[3]")
 	public UIElement accessDeniedMssge;
 
 }

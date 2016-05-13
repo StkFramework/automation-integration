@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.example.test.business.SearchRequestBusinessCase;
 import com.softtek.automation.TestLogger;
 import com.softtek.automation.actions.AppActions;
 import com.softtek.automation.actions.UIActions;
@@ -30,6 +31,8 @@ public class JUnitTest extends AbstractSteps{
 	private UIElementFactory UIElementFactory;
 	@Autowired(required=true)
 	private AppActions AppActions;	
+	@Autowired(required=true)
+	private SearchRequestBusinessCase searchRequestBusinessCase;
 
 	@Before
 	public void setup()throws Exception{
@@ -47,12 +50,14 @@ public class JUnitTest extends AbstractSteps{
 		
 		TestLogger.INFO(this, "Running testDashboard() in JUnit framework");
 		
-		assertTrue(UIActions.TypeTextOnElement(UIElementFactory.createElement("LoginPageView.userNameTxt"), "xxxxx"));
-		assertTrue(UIActions.TypeTextOnElement(UIElementFactory.createElement("LoginPageView.passwordTxt"), "xxxxx"));
+		assertTrue(UIActions.TypeTextOnElement(UIElementFactory.createElement("LoginPageView.userNameTxt"), "jose.san"));
+		assertTrue(UIActions.TypeTextOnElement(UIElementFactory.createElement("LoginPageView.passwordTxt"), "TePa181115"));
 		assertTrue(UIActions.ClickOnElement(UIElementFactory.createElement("LoginPageView.submitBtn")));
 		assertTrue(AppActions.WaitForSeconds("10"));
 		assertTrue(UIActions.ElementContainsText(UIElementFactory.createElement("DashBoardPageView.mainHeader"), "Dashboard - Default"));
 		assertTrue(AppActions.WaitForSeconds("2"));
+		
+		assertTrue(searchRequestBusinessCase.run(this.ExecutionContext));
 
 		
 	}

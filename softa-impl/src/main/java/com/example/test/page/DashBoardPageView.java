@@ -9,5 +9,7 @@ public class DashBoardPageView {
 	@ElementMap(using = ".//*[@id='Dashboard - Default']", verify = true )
 	public static UIElement mainHeader;
 
+	@ElementMap(using = ".//*[@id='Dashboard - Default']")
+	public static UIElement logoutLink;
 	
 }
