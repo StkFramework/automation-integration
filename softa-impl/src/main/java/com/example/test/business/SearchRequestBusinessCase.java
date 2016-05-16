@@ -22,6 +22,7 @@ public class SearchRequestBusinessCase extends AbstractBusinessCase {
 
 	@Autowired(required=true)
 	private UIActions UIActions;
+	
 	@Autowired(required=true)
 	private AppActions AppActions;
 	

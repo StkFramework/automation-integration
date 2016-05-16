@@ -16,8 +16,7 @@ import cucumber.runtime.java.StepDefAnnotation;
 public class SearchRequestTestSteps extends AbstractSteps{
 	
 	@Autowired(required=true)
-	private SearchRequestBusinessCase searchRequestBusinessCase;
-	
+	private SearchRequestBusinessCase searchRequestBusinessCase;	
 	
 	@When("^I validate request search$")
 	public void i_validate_request_search() throws Exception {		

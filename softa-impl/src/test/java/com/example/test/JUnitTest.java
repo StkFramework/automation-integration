@@ -58,6 +58,9 @@ public class JUnitTest extends AbstractSteps{
 		assertTrue(AppActions.WaitForSeconds("2"));
 		
 		assertTrue(searchRequestBusinessCase.run(this.ExecutionContext));
+		
+		
+		assertTrue(AppActions.CloseCurrentApp());
 
 		
 	}

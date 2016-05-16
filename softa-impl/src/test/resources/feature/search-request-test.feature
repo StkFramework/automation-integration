@@ -6,7 +6,7 @@ Feature: login-test
 	#When I wait '5' seconds	
 	
 	
-	@test
+	@ignore
 	Scenario: TC001 - Validate request searching
 		Given I open application 'application1'
 		When I wait '5' seconds	
@@ -20,3 +20,9 @@ Feature: login-test
 		
 		And I wait '2' seconds
 		And I close current application
+	
+	
+	@test
+	Scenario: TC002 - Validate request searching
+		Given I open application 'application1'
+		When I wait '5' seconds	
