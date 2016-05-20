@@ -21,8 +21,8 @@ import com.softtek.automation.steps.AbstractSteps;
 import cucumber.api.java.en_au.ButattheendofthedayIreckon;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(locations="classpath*:resources/spring/mainConfigCtx.xml")
-@ContextConfiguration("file:src/main/resources/spring/mainConfigCtx.xml")
+@ContextConfiguration(locations="classpath*:spring/mainConfigCtx.xml")
+//@ContextConfiguration("file:src/main/resources/spring/mainConfigCtx.xml")
 public class JUnitTest extends AbstractSteps{
 
 	@Autowired(required=true)
@@ -51,14 +51,13 @@ public class JUnitTest extends AbstractSteps{
 		TestLogger.INFO(this, "Running testDashboard() in JUnit framework");
 		
 		assertTrue(UIActions.TypeTextOnElement(UIElementFactory.createElement("LoginPageView.userNameTxt"), "jose.san"));
-		assertTrue(UIActions.TypeTextOnElement(UIElementFactory.createElement("LoginPageView.passwordTxt"), "TePa181115"));
+		assertTrue(UIActions.TypeTextOnElement(UIElementFactory.createElement("LoginPageView.passwordTxt"), "XXXX"));
 		assertTrue(UIActions.ClickOnElement(UIElementFactory.createElement("LoginPageView.submitBtn")));
 		assertTrue(AppActions.WaitForSeconds("10"));
 		assertTrue(UIActions.ElementContainsText(UIElementFactory.createElement("DashBoardPageView.mainHeader"), "Dashboard - Default"));
 		assertTrue(AppActions.WaitForSeconds("2"));
 		
-		assertTrue(searchRequestBusinessCase.run(this.ExecutionContext));
-		
+		assertTrue(searchRequestBusinessCase.run(this.ExecutionContext));		
 		
 		assertTrue(AppActions.CloseCurrentApp());
 

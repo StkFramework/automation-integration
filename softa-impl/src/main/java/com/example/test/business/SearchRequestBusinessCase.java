@@ -48,9 +48,7 @@ public class SearchRequestBusinessCase extends AbstractBusinessCase {
 	protected void fillFormWithData(ExecutionContext context, ExecutionResult result) {
 		TestLogger.getInstance(this).info("fillFormWithData()");
 		
-		UIActions.ExecuteJS("arguments[0].click()", ".//*[@id='yui-gen2']");
-		
-		//assertTrue(UIActions.ClickOnElement(".//*[@id='yui-gen2']",null));		
+		UIActions.ExecuteJS("arguments[0].click()", ".//*[@id='yui-gen2']");	
 		assertTrue(UIActions.ClickOnElement(".//*[@id='SEARCH_REQUESTS']/a",null));
 		assertTrue(UIActions.TypeTextOn(".//*[@id='REQWB.CREATED_BYAC_TF']", null, "jose.san"));
 		assertTrue(UIActions.ClickOnElement("html/body/div[5]/div/table[1]/tbody/tr[3]/td/table/tbody/tr[1]/td/table/tbody/tr[15]/td[7]/input[1]",null));

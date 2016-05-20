@@ -16,17 +16,17 @@ Feature: login-test
 	
 	@test
 	Scenario: TC002 - Check close app
-	Given I open application 'application1'
+	#Given I open application 'application1'
 	When I wait '5' seconds		
 	#Then I close current application	
 		
 	@test
 	Scenario: TC003 - Login wiht a valid user
-		Given I open application 'application1'
-		When I wait '5' seconds	
+		#Given I open application 'application1'
+		#When I wait '5' seconds	
 			
 		When I type text 'jose.san' on element 'LoginPageView.userNameTxt'
-		Then I type text 'TePa181115' on element 'LoginPageView.passwordTxt'
+		Then I type text 'XXXXXX' on element 'LoginPageView.passwordTxt'
 		And I click on 'LoginPageView.submitBtn'
 		And I wait '10' seconds
 		And Element 'DashBoardPageView.mainHeader' has text 'Dashboard - Default'		
@@ -35,8 +35,8 @@ Feature: login-test
 		#And I close current application
 	
 	@test
-	Scenario: TC005 - Login wiht a no valid user
-		Given I open application 'application1'
+	Scenario: TC004 - Login wiht a no valid user
+		#Given I open application 'application1'
 		When I wait '5' seconds	
 			
 		When I type text 'no.valid' on element 'LoginPageView.userNameTxt'
@@ -47,6 +47,6 @@ Feature: login-test
 		#And I close current application
 	
 	@test
-	Scenario: TC004 - Validate login and dashboard acces in one step 	
+	Scenario: TC005 - Validate login and dashboard acces in one step 	
 	When I validate dashboard	
 	Then I close current application
