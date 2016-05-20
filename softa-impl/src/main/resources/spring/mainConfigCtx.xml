@@ -41,7 +41,8 @@
 		<property name="applications" > 
 			<list>
 				<ref bean="application1"></ref>
-				<ref bean="application2"></ref>				 
+				<ref bean="application2"></ref>	
+				<ref bean="application3"></ref>								 
 			</list>
 		</property>			
 	</bean>
@@ -70,5 +71,15 @@
 			</props>
 		</property>
 	</bean>
+	
+	<bean id ="application3"  class="com.softtek.automation.Application">
+		<property name="name" value="application3" />
+		<property name="environment" ref="executionEnvironment" />
+		<property name="properties">
+			<props>
+				<prop key="url.test">http://www.despegar.com.mx/hoteles/</prop>			
+			</props>
+		</property>
+	</bean>	
 	
 </beans>
