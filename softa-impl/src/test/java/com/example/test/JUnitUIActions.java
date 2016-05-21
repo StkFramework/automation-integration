@@ -15,7 +15,7 @@ import com.softtek.automation.steps.AbstractSteps;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath*:spring/mainConfigCtx.xml")
-public class NewActionTest extends AbstractSteps{
+public class JUnitUIActions extends AbstractSteps{
 	
 	@Autowired(required=true)
 	private UIActions UIActions;
@@ -37,15 +37,17 @@ public class NewActionTest extends AbstractSteps{
 	
 	@Test
 	public void testUiActions() throws Exception{
-		
-		assertTrue(UIActions.ClickOnElement(UIElementFactory.createElement("NewActionTestPageView.cityTxt")));
-		assertTrue(UIActions.ElementIsEnabled(UIElementFactory.createElement("NewActionTestPageView.searchCitybtn")));
-		assertTrue(UIActions.VerifyMaxLengthText(UIElementFactory.createElement("NewActionTestPageView.cityTxt"), 75));
-		assertTrue(UIActions.ElementIsTypeOf(UIElementFactory.createElement("NewActionTestPageView.searchCitybtn"), "a"));
-		assertTrue(UIActions.MoveMouseOverElement(UIElementFactory.createElement("NewActionTestPageView.adultNumber")));
-		assertTrue(UIActions.SelectValueFromDropdownElement(UIElementFactory.createElement("NewActionTestPageView.roomsDropdown"), "2"));
-		assertTrue(UIActions.ClickOnElement(UIElementFactory.createElement("NewActionTestPageView.notDecideDateChkbox")));
-		assertTrue(UIActions.IsSelected(UIElementFactory.createElement("NewActionTestPageView.notDecideDateChkbox")));		
-		
+		//Testing actions: Overloading
+		assertTrue(UIActions.ClickOnElement("//a[contains(text(), 'REGISTER')]", null));
+		assertTrue(UIActions.TypeTextOn("//input[@name='firstName']", null, "test"));
+		assertTrue(UIActions.TypeTextOn("//input[@name='address1']", null, "test"));
+		assertTrue(UIActions.VerifyMaxLengthText("//input[@name='address1']", null, 60));
+		assertTrue(UIActions.MoveMouseOverElement("//a[contains(text(), 'Flights')]", null));
+		assertTrue(UIActions.SelectValueFromDropdownElement("//select[@name='country']", null, "47"));
+		assertTrue(UIActions.TypeTextOn("//input[@name='email']", null, "test123"));
+		assertTrue(UIActions.TypeTextOn("//input[@name='password']", null, "test123"));
+		assertTrue(UIActions.TypeTextOn("//input[@name='confirmPassword']", null, "test123"));
+		assertTrue(UIActions.ClickOnElement("//input[@name='register']", null));
+		assertTrue(UIActions.ElementHasText("//div[contains(@class, 'footer')]", null, " © 2005, Mercury Interactive (v. 011003-1.01-058) "));
 	}
 }

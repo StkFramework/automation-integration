@@ -77,7 +77,7 @@
 		<property name="environment" ref="executionEnvironment" />
 		<property name="properties">
 			<props>
-				<prop key="url.test">http://www.despegar.com.mx/hoteles/</prop>			
+				<prop key="url.test">http://newtours.demoaut.com/</prop>			
 			</props>
 		</property>
 	</bean>	
