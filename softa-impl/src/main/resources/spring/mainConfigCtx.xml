@@ -43,7 +43,8 @@
 				<ref bean="application1"></ref>
 				<ref bean="application2"></ref>	
 				<ref bean="application3"></ref>		
-				<ref bean="application4"></ref>							 
+				<ref bean="application4"></ref>		
+				<ref bean="application5"></ref>						 
 			</list>
 		</property>			
 	</bean>
@@ -89,6 +90,16 @@
 		<property name="properties">
 			<props>
 				<prop key="url.test">http://www.w3schools.com/jsref/prop_button_disabled.asp</prop>			
+			</props>
+		</property>
+	</bean>	
+	
+	<bean id ="application5"  class="com.softtek.automation.Application">
+		<property name="name" value="application5" />
+		<property name="environment" ref="executionEnvironment" />
+		<property name="properties">
+			<props>
+				<prop key="url.test">http://localhost:8100/#/login</prop>			
 			</props>
 		</property>
 	</bean>	
