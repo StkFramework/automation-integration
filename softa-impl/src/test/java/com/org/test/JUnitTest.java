@@ -1,4 +1,4 @@
-package com.example.test;
+package com.org.test;
 
 import static org.junit.Assert.*;
 
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.example.test.business.SearchRequestBusinessCase;
+import com.org.test.business.SearchRequestBusinessCase;
 import com.softtek.automation.TestLogger;
 import com.softtek.automation.actions.AppActions;
 import com.softtek.automation.actions.UIActions;
@@ -22,7 +22,6 @@ import cucumber.api.java.en_au.ButattheendofthedayIreckon;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath*:spring/mainConfigCtx.xml")
-//@ContextConfiguration("file:src/main/resources/spring/mainConfigCtx.xml")
 public class JUnitTest extends AbstractSteps{
 
 	@Autowired(required=true)
@@ -59,9 +58,7 @@ public class JUnitTest extends AbstractSteps{
 		
 		assertTrue(searchRequestBusinessCase.run(this.ExecutionContext));		
 		
-		assertTrue(AppActions.CloseCurrentApp());
-
-		
+		assertTrue(AppActions.CloseCurrentApp());		
 	}
 
 }

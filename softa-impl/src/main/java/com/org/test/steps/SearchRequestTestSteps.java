@@ -1,8 +1,8 @@
-package com.example.test.steps;
+package com.org.test.steps;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.example.test.business.SearchRequestBusinessCase;
+import com.org.test.business.SearchRequestBusinessCase;
 import com.softtek.automation.TestLogger;
 import com.softtek.automation.actions.AppActions;
 import com.softtek.automation.actions.UIActions;

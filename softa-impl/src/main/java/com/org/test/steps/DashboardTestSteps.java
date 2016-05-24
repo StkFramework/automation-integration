@@ -1,10 +1,10 @@
-package com.example.test.steps;
+package com.org.test.steps;
 
 import com.softtek.automation.steps.AbstractSteps;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.example.test.business.SearchRequestBusinessCase;
+import com.org.test.business.SearchRequestBusinessCase;
 import com.softtek.automation.TestLogger;
 import com.softtek.automation.actions.AppActions;
 import com.softtek.automation.actions.UIActions;
@@ -31,9 +31,10 @@ public class DashboardTestSteps extends AbstractSteps{
 		assertTrue(AppActions.OpenApplication("application1"));
 		assertTrue(AppActions.WaitForSeconds("5"));
 		assertTrue(UIActions.TypeTextOn(UIElementFactory.createElement("LoginPageView.userNameTxt"), "jose.san"));
-		assertTrue(UIActions.TypeTextOn(UIElementFactory.createElement("LoginPageView.passwordTxt"), "TePa181115"));
+		assertTrue(UIActions.TypeTextOn(UIElementFactory.createElement("LoginPageView.passwordTxt"), "XXXXXXXX"));
 		
-		//assertTrue(UIActions.ClickOnElement(UIElementFactory.createElement("LoginPageView.submitBtn")));
+		assertTrue(UIActions.ClickOnElement(UIElementFactory.createElement("LoginPageView.submitBtn")));
+		
 		assertTrue(UIActions.ClickOnElement(".//*[@id='LOGON_SUBMIT_BUTTON_CAPTION.TXT']", null));
 		
 		assertTrue(AppActions.WaitForSeconds("10"));		

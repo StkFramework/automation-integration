@@ -9,15 +9,12 @@
        	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
        	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     
-	    <context:component-scan base-package="com.softtek.automation,com.example.test" />
-		<context:annotation-config />  
+	<context:component-scan base-package="com.softtek.automation,com.org.test" />
+	<context:annotation-config />  
      
     <import resource="classpath*:spring/selenium/seleniumCtx.xml" />
 	<import resource="classpath*:spring/coreCtx.xml" />
-	
-
-    
-    <!-- mainConfingCtx.xml -->
+	    
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="ignoreResourceNotFound" value="false" />
 		<property name="ignoreUnresolvablePlaceholders" value="true" />
@@ -34,22 +31,17 @@
 	</bean>
     	
 	<bean id="viewSourcesPath" class="java.lang.String">
-  		<constructor-arg type="java.lang.String" value="com.example.test.page" />
+  		<constructor-arg type="java.lang.String" value="com.org.test.page" />
 	</bean>		
 	
 	<bean id ="applicationsSet"  class="com.softtek.automation.ApplicationsSet">		
 		<property name="applications" > 
 			<list>
 				<ref bean="application1"></ref>
-				<ref bean="application2"></ref>	
-				<ref bean="application3"></ref>		
-				<ref bean="application4"></ref>		
-				<ref bean="application5"></ref>						 
+				<ref bean="application2"></ref>				 
 			</list>
 		</property>			
 	</bean>
-	
-	
 	
 	<bean id ="application1"  class="com.softtek.automation.Application">
 		<property name="name" value="application1" />
@@ -58,8 +50,7 @@
 			<props>
 				<prop key="url.prod">https://www.facebook.com/</prop>
 				<prop key="url.test">https://ppm.softtek.com/</prop>			
-				<prop key="url.uat">https://login.live.com</prop>
-				<prop key="user1.pass"></prop>
+				<prop key="url.uat">https://login.live.com</prop>				
 			</props>
 		</property>
 	</bean>

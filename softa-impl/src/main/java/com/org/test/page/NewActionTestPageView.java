@@ -1,4 +1,4 @@
-package com.example.test.page;
+package com.org.test.page;
 
 import com.softtek.automation.anotations.ElementMap;
 import com.softtek.automation.element.UIElement;

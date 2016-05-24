@@ -1,4 +1,4 @@
-package com.example.test.business;
+package com.org.test.business;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.example.test.structure.RequestSearchResultOutput;
+import com.org.test.structure.RequestSearchResultOutput;
 import com.softtek.automation.ErrorType;
 import com.softtek.automation.ExecutionContext;
 import com.softtek.automation.ExecutionResult;

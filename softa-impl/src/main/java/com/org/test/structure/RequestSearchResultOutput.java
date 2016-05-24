@@ -1,4 +1,4 @@
-package com.example.test.structure;
+package com.org.test.structure;
 
 import com.softtek.automation.structure.AbstractStructure;
 
