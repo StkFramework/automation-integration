@@ -24,14 +24,14 @@ public class DashboardTestSteps extends AbstractSteps{
 	private AppActions AppActions;	
 	
 	@When("^(?i:I validate dashboard)$")
-	public void i_validate_dashboard() throws Exception {		
+	public void i_validate_dashboard() throws Exception {	
 		
 		TestLogger.getInstance(this).info("i_validate_dashboard ...");
 		
 		assertTrue(AppActions.OpenApplication("application1"));
 		assertTrue(AppActions.WaitForSeconds("5"));
 		assertTrue(UIActions.TypeTextOn(UIElementFactory.createElement("LoginPageView.userNameTxt"), "jose.san"));
-		assertTrue(UIActions.TypeTextOn(UIElementFactory.createElement("LoginPageView.passwordTxt"), "XXXXXXXX"));
+		assertTrue(UIActions.TypeTextOn(UIElementFactory.createElement("LoginPageView.passwordTxt"), "TePa181115"));
 		
 		assertTrue(UIActions.ClickOnElement(UIElementFactory.createElement("LoginPageView.submitBtn")));
 		
@@ -41,7 +41,9 @@ public class DashboardTestSteps extends AbstractSteps{
 		assertTrue(UIActions.ElementContainsText(UIElementFactory.createElement("DashBoardPageView.mainHeader"), "Dashboard - Default"));		
 		assertTrue(AppActions.WaitForSeconds("2"));
 		
-		assertTrue(AppActions.CloseCurrentApp());		
+		assertTrue(AppActions.CloseCurrentApp());	
+		
+		
 		
 	}
 }

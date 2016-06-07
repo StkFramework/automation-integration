@@ -36,7 +36,6 @@ public class JUnitTest extends AbstractSteps{
 	@Before
 	public void setup()throws Exception{
 		assertTrue(AppActions.OpenApplication("application1"));
-		assertTrue(AppActions.WaitForSeconds("5"));		
 	}
 	
 	@After 
@@ -49,8 +48,10 @@ public class JUnitTest extends AbstractSteps{
 		
 		TestLogger.INFO(this, "Running testDashboard() in JUnit framework");
 		
+		//assertTrue(UIActions.TypeTextOn("LoginPageView.userNameTxt", "jose.san"));
+		
 		assertTrue(UIActions.TypeTextOn(UIElementFactory.createElement("LoginPageView.userNameTxt"), "jose.san"));
-		assertTrue(UIActions.TypeTextOn(UIElementFactory.createElement("LoginPageView.passwordTxt"), "XXXX"));
+		assertTrue(UIActions.TypeTextOn(UIElementFactory.createElement("LoginPageView.passwordTxt"), "TePa181115"));
 		assertTrue(UIActions.ClickOnElement(UIElementFactory.createElement("LoginPageView.submitBtn")));
 		assertTrue(AppActions.WaitForSeconds("10"));
 		assertTrue(UIActions.ElementContainsText(UIElementFactory.createElement("DashBoardPageView.mainHeader"), "Dashboard - Default"));
