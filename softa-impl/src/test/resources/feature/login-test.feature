@@ -12,8 +12,8 @@ Feature: login-test
 		
 	@test
 	Scenario: TC002 - Login wiht a valid user
-		Given I type text 'jose.san' on element 'LoginPageView.userNameTxt'
-		When I type text 'TePa181115' on element 'LoginPageView.passwordTxt'
+		Given I type text 'xxxx' on element 'LoginPageView.userNameTxt'
+		When I type text 'xxxxx' on element 'LoginPageView.passwordTxt'
 		Then I click on 'LoginPageView.submitBtn'
 		#And I wait '10' seconds
 		And Element 'DashBoardPageView.mainHeader' has text 'Dashboard - Default'		
