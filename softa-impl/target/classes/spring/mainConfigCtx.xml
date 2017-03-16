@@ -38,7 +38,8 @@
 		<property name="applications" > 
 			<list>
 				<ref bean="application1"></ref>
-				<ref bean="application2"></ref>				 
+				<ref bean="application2"></ref>
+				<ref bean="application3"></ref>				 
 			</list>
 		</property>			
 	</bean>
@@ -48,9 +49,9 @@
 		<property name="environment" ref="executionEnvironment" />
 		<property name="properties">
 			<props>
-				<prop key="url.prod">https://www.facebook.com/</prop>
-				<prop key="url.test">https://ppm.softtek.com/</prop>			
-				<prop key="url.uat">https://login.live.com</prop>				
+				<prop key="url.prod">https://campaign.globalbrinker.com</prop>
+				<prop key="url.test">https://campaign-dev.globalbrinker.com</prop>			
+				<prop key="url.uat">https://campaign-qa2.globalbrinker.com</prop>				
 			</props>
 		</property>
 	</bean>
@@ -60,7 +61,8 @@
 		<property name="environment" ref="executionEnvironment" />
 		<property name="properties">
 			<props>
-				<prop key="url.test">https://login.live.com/</prop>			
+				<prop key="url.test">https://dge-restaurants-dev.globalbrinker.com</prop>
+				<prop key="url.uat">https://dge-restaurants-qa.globalbrinker.com</prop>			
 			</props>
 		</property>
 	</bean>
@@ -70,7 +72,7 @@
 		<property name="environment" ref="executionEnvironment" />
 		<property name="properties">
 			<props>
-				<prop key="url.test">http://newtours.demoaut.com/</prop>			
+				<prop key="url.test">https://www.google.com.mx</prop>			
 			</props>
 		</property>
 	</bean>	

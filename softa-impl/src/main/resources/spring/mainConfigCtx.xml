@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+       	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
+       	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    
+	<context:component-scan base-package="com.softtek.automation,com.org.test" />
+	<context:annotation-config />  
+     
+    <import resource="classpath*:spring/selenium/seleniumCtx.xml" />
+	<import resource="classpath*:spring/coreCtx.xml" />
+	    
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreResourceNotFound" value="false" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath*:props/automation-${environment}.properties</value>
+			</list>
+		</property>
+	</bean>
+        
+    
+	<bean id="executionEnvironment" class="java.lang.String">  		
+  		<constructor-arg type="java.lang.String" value="${environment}" />
+	</bean>
+    	
+	<bean id="viewSourcesPath" class="java.lang.String">
+  		<constructor-arg type="java.lang.String" value="com.org.test.page" />
+	</bean>		
+	
+	<bean id ="applicationsSet"  class="com.softtek.automation.ApplicationsSet">		
+		<property name="applications" > 
+			<list>
+				<ref bean="application1"></ref>
+				<ref bean="application2"></ref>
+				<ref bean="application3"></ref>				 
+			</list>
+		</property>			
+	</bean>
+	
+	<bean id ="application1"  class="com.softtek.automation.Application">
+		<property name="name" value="application1" />
+		<property name="environment" ref="executionEnvironment" />
+		<property name="properties">
+			<props>
+				<prop key="url.prod">https://campaign.globalbrinker.com</prop>
+				<prop key="url.test">https://campaign-dev.globalbrinker.com</prop>			
+				<prop key="url.uat">https://campaign-qa2.globalbrinker.com</prop>				
+			</props>
+		</property>
+	</bean>
+	
+	<bean id ="application2"  class="com.softtek.automation.Application">
+		<property name="name" value="application2" />
+		<property name="environment" ref="executionEnvironment" />
+		<property name="properties">
+			<props>
+				<prop key="url.test">https://dge-restaurants-dev.globalbrinker.com</prop>
+				<prop key="url.uat">https://dge-restaurants-qa.globalbrinker.com</prop>			
+			</props>
+		</property>
+	</bean>
+	
+	<bean id ="application3"  class="com.softtek.automation.Application">
+		<property name="name" value="application3" />
+		<property name="environment" ref="executionEnvironment" />
+		<property name="properties">
+			<props>
+				<prop key="url.test">https://www.google.com.mx</prop>			
+			</props>
+		</property>
+	</bean>	
+	
+	<bean id ="application4"  class="com.softtek.automation.Application">
+		<property name="name" value="application4" />
+		<property name="environment" ref="executionEnvironment" />
+		<property name="properties">
+			<props>
+				<prop key="url.test">http://www.w3schools.com/jsref/prop_button_disabled.asp</prop>			
+			</props>
+		</property>
+	</bean>	
+	
+	<bean id ="application5"  class="com.softtek.automation.Application">
+		<property name="name" value="application5" />
+		<property name="environment" ref="executionEnvironment" />
+		<property name="properties">
+			<props>
+				<prop key="url.test">http://localhost:8100/#/login</prop>			
+			</props>
+		</property>
+	</bean>	
+	
+</beans>
