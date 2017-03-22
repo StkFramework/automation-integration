@@ -24,6 +24,13 @@
 			</list>
 		</property>
 	</bean>
+	
+	<bean id ="UIActionsLocal"  class="com.softtek.automation.actions.selenium.SeleniumUIActionsLocal" >	
+		<property name="testDriver" ref="testDriver" />	
+		<property name="UIElementsVerification" ref="UIElementsVerification"/>	
+		<property name="executionContext" ref="ExecutionContext"/>
+		<property name="expressionParserAdapter" ref="expressionParserAdapter"/>						
+	</bean>
         
     
 	<bean id="executionEnvironment" class="java.lang.String">  		
@@ -40,8 +47,38 @@
 				<ref bean="application1"></ref>
 				<ref bean="application2"></ref>
 				<ref bean="application3"></ref>				 
+				<ref bean="applicationCMS"></ref>
+				<ref bean="applicationCampaign"></ref>
 			</list>
 		</property>			
+	</bean>
+	
+	<bean id ="applicationCMS"  class="com.softtek.automation.Application">
+		<property name="name" value="applicationCMS" />
+		<property name="environment" ref="executionEnvironment" />
+		<property name="properties">
+			<props>
+				<prop key="url.prod">https://dge-cms-dev.globalbrinker.com</prop>
+				<prop key="url.dev">https://dge-cms-dev.globalbrinker.com</prop>			
+				<prop key="url.uat">https://dge-cms-dev.globalbrinker.com</prop>
+				<prop key="url.test">https://hub-qa.globalbrinker.com/</prop>				
+			</props>
+		</property>
+	</bean>
+	
+	<bean id ="applicationCampaign"  class="com.softtek.automation.Application">
+		<property name="name" value="applicationCampaign" />
+		<property name="environment" ref="executionEnvironment" />
+		<property name="properties">
+			<props>
+				<prop key="url.testAlt">https://campaign-qa2.globalbrinker.com/</prop>
+				<prop key="url.prod">https://campaign-dev.globalbrinker.com</prop>
+				<prop key="url.dev">https://campaign-dev.globalbrinker.com</prop>			
+				<prop key="url.uat">https://campaign-dev.globalbrinker.com</prop>
+				<prop key="url.test">https://hub-qa.globalbrinker.com/</prop>
+				
+			</props>
+		</property>
 	</bean>
 	
 	<bean id ="application1"  class="com.softtek.automation.Application">
