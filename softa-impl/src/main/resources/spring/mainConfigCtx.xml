@@ -61,7 +61,7 @@
 				<prop key="url.prod">https://dge-cms-dev.globalbrinker.com</prop>
 				<prop key="url.dev">https://dge-cms-dev.globalbrinker.com</prop>			
 				<prop key="url.uat">https://dge-cms-dev.globalbrinker.com</prop>
-				<prop key="url.test">https://hub-qa.globalbrinker.com/</prop>				
+				<prop key="url.test">https://dge-cms-qa2.globalbrinker.com/</prop>				
 			</props>
 		</property>
 	</bean>

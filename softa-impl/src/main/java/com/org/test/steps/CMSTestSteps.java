@@ -9,6 +9,7 @@ import com.softtek.automation.ExecutionResult;
 import com.softtek.automation.TestLogger;
 import com.softtek.automation.actions.AppActions;
 import com.softtek.automation.actions.UIActions;
+import com.softtek.automation.actions.UIActionsLocal;
 import com.softtek.automation.element.UIElement;
 import com.softtek.automation.element.UIElementFactory;
 
@@ -19,6 +20,8 @@ import cucumber.runtime.java.StepDefAnnotation;
 public class CMSTestSteps extends AbstractSteps{
 	@Autowired(required=true)
 	private UIActions UIActions;
+	@Autowired(required=true)
+	private UIActionsLocal UIActionsLocal;
 	@Autowired(required=true)
 	private UIElementFactory UIElementFactory;
 	@Autowired(required=true)
@@ -55,6 +58,8 @@ public class CMSTestSteps extends AbstractSteps{
 		String newMenuName = "AutomatedTest"  + System.currentTimeMillis();
 		assertTrue(UIActions.TypeTextOn(UIElementFactory.createElement("CMSPageView.menuNametxt"), newMenuName));
 		
+		assertTrue(UIActions.PutTextInCacheContext(newMenuName, "newMenuName"));
+		
 		assertTrue(UIActions.ClickOnElement(UIElementFactory.createElement("CMSPageView.createBtn")));
 	}
 	
@@ -83,5 +88,20 @@ public class CMSTestSteps extends AbstractSteps{
 			assertTrue(UIActions.ClickOnElement(UIElementFactory.createElement("CMSPageView.deliveryDeliveryBtn")));
 		}
 		
+	}
+	
+	@When("^(?i:I Select Restaurant for the saved menu)$")
+	public void I_select_restaurant() throws Exception{
+		
+		String newMenuName = UIActionsLocal.GetTextFromCacheContext("newMenuName").getObjectResult().toString();
+		String restaurantMenuXPath = "//table//tr[td[@class='name-column']/span[text()='" + newMenuName + "']]/td[@id='actions-column']/a[text()='Restaurants']"; 
+		assertTrue(UIActions.ClickOnElement(restaurantMenuXPath, null));
+	}
+	
+	@When("^(?i:I Select unassigned Restaurant) '(.+)'$")
+	public void I_select_unassigned_restaurant(String restaurant) throws Exception{
+		
+		String restaurantMenuXPath = "//div[h2[text()='Unassigned Restaurants']]/ul//a[span[text()='" + restaurant + "']]"; 
+		assertTrue(UIActions.ClickOnElement(restaurantMenuXPath, null));
 	}
 }

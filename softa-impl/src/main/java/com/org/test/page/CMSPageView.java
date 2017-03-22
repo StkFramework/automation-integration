@@ -65,4 +65,29 @@ public class CMSPageView {
 	
 	@ElementMap(how = How.XPATH, using = "//*[@id='page-content-wrapper']//div/a[text()='Hide all']")
 	public UIElement hideAllAccordionBtn;
+	
+	@ElementMap(how = How.XPATH, using = "//div[@class='side-navbar']//span[text()='Global Menu']")
+	public UIElement globalMenuBtn;
+	
+	@ElementMap(how = How.XPATH, using = "//table//tr[1]/td[@id='actions-column']/a[text()='Copy']")
+	public UIElement firstMenuToCopyBtn;
+	
+	@ElementMap(how = How.XPATH, using = "//div[@class='side-navbar']//span[text()='Franchise Menus']")
+	public UIElement franchiseMenuBtn;
+	
+	@ElementMap(how = How.XPATH, using = "//*[@id='longitude']")
+	public UIElement unassignedRestaurantInput;
+	
+	@ElementMap(how = How.XPATH, using = "//*[@id='unassigned-restaurants']/ul")
+	public UIElement unassignedRestaurantsList;
+	
+	@ElementMap(how = How.XPATH, using = "//*[@id='assign-actions']/button[2]")
+	public UIElement assignBtn;
+	
+	@ElementMap(how = How.XPATH, using = "//div/button[text()='Yes']")
+	public UIElement yesAssignBtn;
+	
+	@ElementMap(how = How.XPATH, using = "//div[contains(@class,'modal-footer')]/button[1]")
+	public UIElement saveBtn;
+	
 }
