@@ -69,6 +69,6 @@
 	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-tx/3.2.3.RELEASE/spring-tx-3.2.3.RELEASE.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/springframework/spring-aspects/3.2.3.RELEASE/spring-aspects-3.2.3.RELEASE.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/aspectj/aspectjweaver/1.7.2/aspectjweaver-1.7.2.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/softa-coreR102"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/NewSofttekCore"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

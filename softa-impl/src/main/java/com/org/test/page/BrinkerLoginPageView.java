@@ -118,5 +118,16 @@ public class BrinkerLoginPageView {
 	@ElementMap(using = "/html/body/div[1]/div/div/div[3]/span[2]/button")
 	public UIElement yesLaunchNowBtn;	
 
+	@ElementMap(how = How.XPATH, using = ".//*[contains(text(),'Use another account') or contains(text(),'Usar otra cuenta')]", verify = true)
+	public UIElement  useAnotherAccount;
+	
+	@ElementMap(how = How.NAME, using = "login", verify = true)
+	public UIElement  userBrinker;
+	
+	@ElementMap(how = How.NAME, using = "passwd", verify = true)
+	public UIElement  passwdBrinker;
+	
+	@ElementMap(how = How.XPATH, using = ".//button[contains(text(),'Sign in') or contains(text(),'Iniciar sesión')]", verify = true)
+	public UIElement  signInBrinker;
 
 }

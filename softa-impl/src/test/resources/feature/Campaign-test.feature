@@ -43,6 +43,7 @@ Feature: Campaign-test
 			And I wait '5' seconds
 		When I drag 'CampaignPageView.imageBlockBtn' and drop it on 'CampaignPageView.editorBody'
 		Then I click on 'CampaignPageView.imagePlaceholder'
+		And I wait '5' seconds
 		Then I upload the image 'NewTemplateBody.jpg'
 			And I wait '15' seconds
 		Then I click on 'CampaignPageView.saveContinueBtn'

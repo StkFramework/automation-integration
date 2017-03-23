@@ -27,23 +27,33 @@ public class CampaignPageView {
 	@ElementMap(how = How.XPATH, using = "//*[@id='campaignDetailsContainer']/div//span[text()='Crear Nueva Campaña']")
 	public UIElement crearNuevaCampaniaBtn;
 	
-	@ElementMap(how = How.XPATH, using = "//*[@id='campaignDetailsContainer']//div/input[@ng-model='Campaign.Name']")
+	//@ElementMap(how = How.XPATH, using = "//*[@id='campaignDetailsContainer']//div/input[@ng-model='Campaign.Name']")
+	@ElementMap(how = How.XPATH, using = ".//*[text()='*Campaign Name']/following-sibling::input", verify = true)
 	public UIElement campaignNameTxt;
 	
 	@ElementMap(how = How.XPATH, using = "//*[@id='campaignDetailsContainer']//div/button[@ng-click='onChangeEmail()']")
 	public UIElement emailChannelBtn;
 	
-	@ElementMap(how = How.XPATH, using = "//*[@id='campaignDetailsContainer']//div/select[@ng-model='Campaign.CampaignLanguageModel']")
+	//@ElementMap(how = How.XPATH, using = "//*[@id='campaignDetailsContainer']//div/select[@ng-model='Campaign.CampaignLanguageModel']")
+	@ElementMap(how = How.XPATH, using = ".//*[text()='*Campaign Language']/following-sibling::select", verify = true)
 	public UIElement languageDrpdwn;
 	
-	@ElementMap(how = How.XPATH, using = "//*[@id='Subject']")
+	@ElementMap(how = How.XPATH, using = ".//*[text()='*From (Name)']/following-sibling::select", verify = true)
+	public UIElement  fromNameDrpdwn;
+	
+	//@ElementMap(how = How.XPATH, using = "//*[@id='Subject']")
+	@ElementMap(how = How.XPATH, using = ".//*[text()='*Email Subject']/parent::div/following-sibling::div[1]/input", verify = true)
 	public UIElement emailSubjectTxt;
 	
-	@ElementMap(how = How.XPATH, using = "//div/button[contains(text(), 'Save & Continue')]")
+	//@ElementMap(how = How.XPATH, using = "//div/button[contains(text(), 'Save & Continue')]")
+	@ElementMap(how = How.XPATH, using = ".//*[contains(text(), 'Save & Continue')]", verify = true)
 	public UIElement saveContinueBtn;
 	
 	@ElementMap(how = How.XPATH, using = "//div/button[contains(text(), 'Guardar & Continuar')]")
 	public UIElement guardarContinuarBtn;
+	
+	@ElementMap(how = How.XPATH, using = ".//*[contains(text(), 'SAVE & CONTINUE')]", verify = true)
+	public UIElement  saveAndContinueSummaryBtn;
 	
 	@ElementMap(how = How.XPATH, using = "//*[@id='loadingMessage']")
 	public UIElement loadingSpinner;
@@ -60,8 +70,15 @@ public class CampaignPageView {
 	@ElementMap(how = How.XPATH, using = "//*[@id='filter1']//div/input")
 	public UIElement filterValueTxt;
 	
-	@ElementMap(how = How.XPATH, using = "//*/button[@class='circle-button-green']")
+//	@ElementMap(how = How.XPATH, using = "//*/button[@class='circle-button-green']")
+	@ElementMap(how = How.XPATH, using = ".//img[contains(@src,'calculateaudience.png')]/parent::button", verify = true)
 	public UIElement calculateAudienceBtn;
+	
+	@ElementMap(how = How.XPATH, using = ".//img[contains(@src,'coupongeneric.png')]/parent::button", verify = true)
+	public UIElement  couponGenericBtn;
+	
+	@ElementMap(how = How.XPATH, using = ".//img[contains(@src,'CouponUnic.png')]/parent::button", verify = true)
+	public UIElement  couponUniqueBtn;
 	
 	@ElementMap(how = How.XPATH, using = "//div[p[text()='Brinker Templates']]//div[@class='temp-name-container']")
 	public UIElement brinkerTemplateBtn;
@@ -69,7 +86,8 @@ public class CampaignPageView {
 	@ElementMap(how = How.XPATH, using = "//div[p[text()='Plantillas de Brinker']]//div[@class='temp-name-container']")
 	public UIElement plantillaBrinkerBtn;
 	
-	@ElementMap(how = How.XPATH, using = "//*[@id='editOptionTemplateContainer']//div//a[span//*[contains(text(),'Content')]]")
+	//@ElementMap(how = How.XPATH, using = "//*[@id='editOptionTemplateContainer']//div//a[span//*[contains(text(),'Content')]]")
+	@ElementMap(how = How.XPATH, using = ".//*[contains(text(),'Content')]", verify = true)
 	public UIElement contentBtn;
 	
 	@ElementMap(how = How.XPATH, using = "//*[@id='editTemplateText']")
@@ -84,7 +102,8 @@ public class CampaignPageView {
 	@ElementMap(how = How.XPATH, using = "//ul[@id='editorBody']//li[1]//div/img[@class='btnRemoveItem']")
 	public UIElement removeImagefromTemplateBody;
 	
-	@ElementMap(how = How.XPATH, using = "//div[contains(@class,'modal-dialog')]//div[contains(@class, 'modal-footer')]//button[text()='OK']")
+	//@ElementMap(how = How.XPATH, using = "//div[contains(@class,'modal-dialog')]//div[contains(@class, 'modal-footer')]//button[text()='OK']")
+	@ElementMap(how = How.XPATH, using = ".//*[@class='modal-content']/div[contains(@class,'modal-footer')]//button[@class='btn ng-binding btn-primary']", verify = true)
 	public UIElement okButtonModalWindow;
 	
 	@ElementMap(how = How.XPATH, using = "//div[contains(@class,'modal-dialog')]//div[contains(@class, 'modal-footer')]//button[text()='Aceptar']")
@@ -108,13 +127,15 @@ public class CampaignPageView {
 	@ElementMap(how = How.XPATH, using = "//*[@id='btnSelectedCustomImage']")
 	public UIElement confirmSaveTemplateModalBtn;
 	
-	@ElementMap(how = How.XPATH, using = "//div[contains(@class, 'br-footer')]//div//button[contains(text(), 'Launch')]")
+//	@ElementMap(how = How.XPATH, using = "//div[contains(@class, 'br-footer')]//div//button[contains(text(), 'Launch')]")
+	@ElementMap(how = How.XPATH, using = ".//button[contains(text(),'Launch')]", verify = true)
 	public UIElement launchNowBtn;
 	
 	@ElementMap(how = How.XPATH, using = "//div[contains(@class, 'br-footer')]//div//button[contains(text(), 'Lanzar')]")
 	public UIElement lanzarBtn;
 	
-	@ElementMap(how = How.XPATH, using = "//div[contains(@class,'modal-dialog')]//div[contains(@class, 'modal-footer')]//button[text()='Yes']")
+	//@ElementMap(how = How.XPATH, using = "//div[contains(@class,'modal-dialog')]//div[contains(@class, 'modal-footer')]//button[text()='Yes']")
+	@ElementMap(how = How.XPATH, using = ".//*[@class='modal-content']/div[contains(@class,'modal-footer')]//button[text()='Yes']", verify = true)
 	public UIElement yesModalWindow;
 	
 	@ElementMap(how = How.XPATH, using = "//div[contains(@class,'modal-dialog')]//div[contains(@class, 'modal-footer')]//button[text()='Si']")
@@ -150,25 +171,40 @@ public class CampaignPageView {
 	@ElementMap(how = How.XPATH, using = "//button[span[text()='Generic']]")
 	public UIElement genericCouponsBtn;
 	
-	@ElementMap(how = How.XPATH, using = "//div[span[text()='Max Amount of Validations']]/input")
+	//@ElementMap(how = How.XPATH, using = "//div[span[text()='Max Amount of Validations']]/input")
+	@ElementMap(how = How.XPATH, using = ".//*[text()='Max Amount of Validations']/following-sibling::input", verify = true)
 	public UIElement maxAmountInput;
 	
-	@ElementMap(how = How.XPATH, using = "//div[span[text()='Suggested Code']]/input")
+	//@ElementMap(how = How.XPATH, using = "//div[span[text()='Suggested Code']]/input")
+	@ElementMap(how = How.XPATH, using = ".//*[text()='Suggested Code']/following-sibling::input", verify = true)
 	public UIElement suggestedCodeInput;
 	
 	@ElementMap(how = How.XPATH, using = "//*[@id='editorBody']/li[@ng-show='coupon.HasCoupons']//label")
 	public UIElement suggestedCodelbl;
 	
-	@ElementMap(how = How.XPATH, using = "//div[h3[text()='Generic Coupons Information']]//div[span[contains(text(),'Offer')]]/input")
+	//@ElementMap(how = How.XPATH, using = "//div[h3[text()='Generic Coupons Information']]//div[span[contains(text(),'Offer')]]/input")
+	@ElementMap(how = How.XPATH, using = ".//*[text()='Generic Coupons Information']/parent::div//span[contains(text(),'Offer')]/following-sibling::input[1]", verify = true)
 	public UIElement offerNameInput;
 	
-	@ElementMap(how = How.XPATH, using = "//div[h3[text()='Generic Coupons Information']]//div[span[contains(text(),'Conditions')]]/textarea")
+	@ElementMap(how = How.XPATH, using = ".//*[text()='Unique Coupons Information']/parent::div//span[contains(text(),'Offer')]/following-sibling::input[1]", verify = true)
+	public UIElement  offerUniqueInput;
+	
+	//@ElementMap(how = How.XPATH, using = "//div[h3[text()='Generic Coupons Information']]//div[span[contains(text(),'Conditions')]]/textarea")
+	@ElementMap(how = How.XPATH, using = ".//*[text()='Generic Coupons Information']/parent::div//span[contains(text(),'Conditions')]/following-sibling::textarea", verify = true)
 	public UIElement conditionsInput;
 	
-	@ElementMap(how = How.XPATH, using = "//button[span[text()='Generate Coupons']]")
+	@ElementMap(how = How.XPATH, using = ".//*[text()='Unique Coupons Information']/parent::div//span[contains(text(),'Conditions')]/following-sibling::textarea", verify = true)
+	public UIElement  coditionsUniqueTextarea;
+	
+	//@ElementMap(how = How.XPATH, using = "//button[span[text()='Generate Coupons']]")
+	@ElementMap(how = How.XPATH, using = ".//*[text()='Generic Coupons Information']/parent::div/following-sibling::div//span[text()='Generate Coupons']/parent::button", verify = true)
 	public UIElement generateCouponsBtn;
 	
-	@ElementMap(how = How.XPATH, using = "//div/button[contains(text(), 'Continue')]")
+	@ElementMap(how = How.XPATH, using = ".//*[text()='Unique Coupons Information']/parent::div/following-sibling::div//span[text()='Generate Coupons']/parent::button", verify = true)
+	public UIElement  generateUniqueCouponsBtn;
+	
+//	@ElementMap(how = How.XPATH, using = "//div/button[contains(text(), 'Continue')]")
+	@ElementMap(how = How.XPATH, using = ".//button[contains(text(),'Continue')]", verify = true)
 	public UIElement continueBtn;
 	
 	@ElementMap(how = How.XPATH, using = "//*[@id='editTemplateCouponButton']")
@@ -210,6 +246,59 @@ public class CampaignPageView {
 	@ElementMap(how = How.XPATH, using = "//h3[contains(@class, 'welcomeSubtitle')]")
 	public UIElement welcomeSubtitleLbl;
 	
+	@ElementMap(how = How.XPATH, using = ".//*[text()='Click here if this campaign will have coupons']/preceding-sibling::input", verify = true)
+	public UIElement  clickHereIfThisCampaignWillHaveCouponsChecktbox;
+	
+	@ElementMap(how = How.XPATH, using = ".//*[@id='campaignDetailsContainer']/div[1]/div[2]/div[4]/button", verify = true)
+	public UIElement  clickOnMobileIconToSelectAndSetupBtn;
+	
+	@ElementMap(how = How.XPATH, using = ".//*[text()='*Promotion name']/parent::div/following-sibling::div[1]/input", verify = true)
+	public UIElement  promotionNameInput;
+	
+	@ElementMap(how = How.XPATH, using = ".//*[text()='*Promotion description']/parent::div/following-sibling::div[1]/textarea", verify = true)
+	public UIElement  promotionDescriptionTextarea;
+	
+	@ElementMap(how = How.XPATH, using = ".//*[text()='Quantity']/following-sibling::input", verify = true)
+	public UIElement  quantityInput;
+	
+	@ElementMap(how = How.XPATH, using = ".//*[@class='modal-content']/div[contains(@class,'modal-body')]/div", verify = true)
+	public UIElement  textModal;
+	
+	@ElementMap(how = How.XPATH, using = ".//*[text()='Coupons']/parent::span/parent::div", verify = true)
+	public UIElement  couponsBtn;
+	
+	@ElementMap(how = How.XPATH, using = ".//*[text()='Suggested Code']/following-sibling::div", verify = true)
+	public UIElement  suggestedCodeSummaryLabel;
+	
+	@ElementMap(how = How.XPATH, using = ".//*[@id='deselectAll']", verify = true)
+	public UIElement clearAllLink;
+	
+	@ElementMap(how = How.XPATH, using = ".//*[@id='campaignDetailsContainer']/div[1]/div[2]/div[4]/div/div[6]/input[2]", verify = true)
+	public UIElement browseMobileBtn;
+	
+	@ElementMap(how = How.XPATH, using = ".//*[@id='campaignDetailsContainer']/div[2]/div[2]/div[1]/select", verify = true)
+	public UIElement timeZoneDrpdwn;
+	
+	@ElementMap(how = How.XPATH, using = ".//*[contains(@src,'exportcoupons.png')]/parent::button", verify = true)
+	public UIElement exportCouponBtn;
+	
+	@ElementMap(how = How.XPATH, using = ".//*[text()='Everyday']/parent::label", verify = true)
+	public UIElement everydayRadioBtn;
+	
+	@ElementMap(how = How.XPATH, using = ".//*[text()='Start Date']/parent::div/div/button", verify = true)
+	public UIElement startDateBtn;
+	
+	@ElementMap(how = How.XPATH, using = ".//button[text()='Today']", verify = true)
+	public UIElement todayBtn;
+	
+	@ElementMap(how = How.XPATH, using = ".//*[text()='Start Time']/parent::div/table//*[contains(@class,'increment hours')]/a", verify = true)
+	public UIElement incrementHourBtn;
+	
+	@ElementMap(how = How.XPATH, using = ".//*[text()='Monthly']/parent::label", verify = true)
+	public UIElement monthlyRadioBtn;
+	
+	@ElementMap(how = How.XPATH, using = ".//button[contains(text(),'Skip')]", verify = true)
+	public UIElement skipBtn;
 }
 
 
