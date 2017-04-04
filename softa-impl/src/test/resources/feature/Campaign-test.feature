@@ -24,16 +24,17 @@ Feature: Campaign-test
     Then Validate the Total of Customer on the 'Plaza Patio' Franchise is updated
     And I close current application
 
-  @test
+  @test1
   Scenario: CAM002 - Create a Campaign Launch Now, with Generic Coupons
     Given I open application 'applicationCampaign'
     Given I logged in successfully to Brinker using user 'User2'
     And I wait '3' seconds
     And I click on 'BrinkerLandingPageView.campaignsImg'
     And I wait '10' seconds
-    And I click on 'CampaignsListPageView.createNewCampaignSection'
+    And Create new Campaign
+  #  And I click on 'CampaignsListPageView.createNewCampaignSection'
     And Select value 'English' from dropdown 'CampaignPageView.languageDrpdwn'
-    And I type text 'AutomationTestCampaign2' on element 'CampaignPageView.newCampaignNameTxt'
+    And I type text 'AutomationTestCampaign2' on element 'CampaignPageView.campaignNameTxt'
     And Put text 'AutomationTestCampaign2' with key 'newCampaignName' in volatile context
     And I click on 'CampaignPageView.clickHereIfThisCampaignWillHaveCouponsChecktbox'
     And I click on 'CampaignPageView.emailChannelBtn'
@@ -316,7 +317,7 @@ Feature: Campaign-test
     And I wait '10' seconds
     And I click on 'CampaignsListPageView.createNewCampaignSection'
     And Select value 'English' from dropdown 'CampaignPageView.languageDrpdwn'
-    And I type text 'AutomationMobileCampaign' on element 'CampaignPageView.newCampaignNameTxt'
+    And I type text 'AutomationMobileCampaign' on element 'CampaignPageView.campaignNameTxt'
     And Put text 'AutomationMobileCampaign' with key 'newCampaignName' in volatile context
     And I click on 'CampaignPageView.clickHereIfThisCampaignWillHaveCouponsChecktbox'
     And I click on 'CampaignPageView.clickOnMobileIconToSelectAndSetupBtn'
@@ -384,7 +385,7 @@ Feature: Campaign-test
     And I wait '10' seconds
     And I click on 'CampaignsListPageView.createNewCampaignSection'
     And Select value 'English' from dropdown 'CampaignPageView.languageDrpdwn'
-    And I type text 'AutomationTestCampaign2' on element 'CampaignPageView.newCampaignNameTxt'
+    And I type text 'AutomationTestCampaign2' on element 'CampaignPageView.campaignNameTxt'
     And Put text 'AutomationTestCampaign2' with key 'newCampaignName' in volatile context
     And I click on 'CampaignPageView.clickHereIfThisCampaignWillHaveCouponsChecktbox'
     And I click on 'CampaignPageView.emailChannelBtn'
