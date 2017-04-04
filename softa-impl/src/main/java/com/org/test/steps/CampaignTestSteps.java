@@ -43,13 +43,6 @@ public class CampaignTestSteps extends AbstractSteps{
 	@Autowired(required=true)
 	private ButtonElements buttonElements;
 	
-	@When("^(?i:I select the first Email from list)$")
-	public void select_first_email() throws Exception{
-		String emailDropdownXPath = "//*[@id='campaignDetailsContainer']//div/select[@ng-model='EmailChannel.Id']"; 
-		UIActions.ClickOnElement(emailDropdownXPath, null);
-		UIActions.ClickOnElement(emailDropdownXPath + "/option[2]", null);
-	}
-	
 	@When("^(?i:I validate Select Audience page)$")
 	public void validate_audience_page() throws Exception{
 		String selectAudienceXPathPrefix ="//section/article//";
@@ -73,7 +66,7 @@ public class CampaignTestSteps extends AbstractSteps{
 		String newCampaignName = "AutomatedTest"  + System.currentTimeMillis();
 		assertTrue(UIActions.TypeTextOn(UIElementFactory.createElement(element), newCampaignName));
 		
-		assertTrue(UIActions.PutTextInCacheContext(newCampaignName, "newCampaignName"));
+		assertTrue(UIActions.PutTextInVolatileContext(newCampaignName, "newCampaignName"));
 	}
 	
 	@When("^(?i:I validate the coupon)$")
@@ -89,12 +82,12 @@ public class CampaignTestSteps extends AbstractSteps{
 		
 		assertTrue(AppActions.WaitForSeconds("10"));
 		
-		assertTrue(UIActions.ElementContainsText(UIElementFactory.createElement("DashBoardPageView.expiredCampaignlbl"), "Campaign expired"));
+	//	assertTrue(UIActions.ElementContainsText(UIElementFactory.createElement("DashBoardPageView.expiredCampaignlbl"), "Campaign expired"));
 	}
 	
 	@When("^(?i:I Search for launched Campaign)$")
 	public void search_launched_campaign() throws Exception{
-		String newCampaignName = UIActionsLocal.GetTextFromCacheContext("newCampaignName").getObjectResult().toString();
+		String newCampaignName = UIActions.GetStringTextInCacheContext("newCampaignName").toString();
 		
 		assertTrue(UIActions.ClickOnElement(UIElementFactory.createElement("CampaignPageView.filterByBtn")));
 		assertTrue(UIActions.ClickOnElement(UIElementFactory.createElement("CampaignPageView.filterByNameBtn")));
@@ -106,12 +99,6 @@ public class CampaignTestSteps extends AbstractSteps{
 	@When("^(?i:I drag) '(.+)' (?i:and drop it on) '(.+)'$")
 	public void drag_and_drop(String ElementToDrag, String DropDestination) throws Exception{
 		assertTrue(UIActionsLocal.DragAndDrop(UIElementFactory.createElement(ElementToDrag), UIElementFactory.createElement(DropDestination)));
-	}
-	
-	@When("^(?i:I upload the image) '(.+)'$")
-	public void upload_image(String imageName) throws Exception{
-		String imagePath = Paths.get(System.getProperty("user.home")).toAbsolutePath().toString() + "\\Documents\\Brinker\\" + imageName ;
-		assertTrue(UIActionsLocal.UploadFile(UIElementFactory.createElement("CampaignPageView.uploadImageInputFile"), imagePath));
 	}
 	
 	@When("^(?i:I verify all sections are marked green)$")
@@ -134,14 +121,6 @@ public class CampaignTestSteps extends AbstractSteps{
 		String code = UIActionsLocal.GetTextFromCacheContext("couponCode").getObjectResult().toString();
 		UIActions.TypeTextOn(UIElementFactory.createElement(element), code);
 		
-	}
-	
-	@When("^(?i:I validate Status is) '(.+)'$")
-	public void validate_status_for_campaign(String status) throws Exception
-	{
-		String campaignName = UIActionsLocal.GetTextFromCacheContext("newCampaignName").getObjectResult().toString();
-		String campaignXPath = "//div[@class='br-content']/section[h4[text()='" + campaignName + "']]//span[3]";
-		assertTrue(UIActions.ElementHasText(campaignXPath, null, status));
 	}
 	
 	@When("^(?i:I type text) '(.+)' (?i:and hit Enter on element) '(.+)'$")
@@ -429,16 +408,6 @@ public class CampaignTestSteps extends AbstractSteps{
 		UIActions.ExecuteJS("arguments[0].click();", ".//*[text()='"+templateName+"']");
 	}
 	
-	@And("^Drag the button scissors icon and Drop it anywhere over the template$")
-	public void drag_the_button_scissors_icon_and_drop_it_anywhere_over_the_template() {
-		TestDriver<WebDriver> driver = (TestDriver<WebDriver>) Actions.getTestDriver();
-		
-		WebElement element = driver.getDriverInstance().findElement(By.xpath(".//*[@id='editTemplateCouponButton']")); 
-
-		WebElement target = driver.getDriverInstance().findElement(By.xpath(".//*[@id='editorBody']/li[1]//img[@class='customImage']"));
-
-		(new Actions(driver.getDriverInstance())).dragAndDrop(element, target).perform();
-	}
 	
 	@Then("^Once all the sections in the Summary Screen are marked GREEN$")
 	public void once_all_the_section_in_the_summary_screen_are_marked_green() {
@@ -483,7 +452,12 @@ public class CampaignTestSteps extends AbstractSteps{
 	public void validate_the_status_from_key_campaign_name(String status, String key) {
 		TestDriver<WebDriver> driver = (TestDriver<WebDriver>) Actions.getTestDriver();
 		String campaignName = UIActions.GetStringTextInCacheContext(key).toString();
-		String getTextProperty = driver.getDriverInstance().findElement(By.xpath(".//*[text()='"+campaignName+"']/following-sibling::span[contains(@class,'br-status') and not(contains(text(),'Canceled'))]")).getText();
+		String getTextProperty;
+		if(status.equalsIgnoreCase("Canceled")){
+			getTextProperty = driver.getDriverInstance().findElement(By.xpath(".//*[text()='"+campaignName+"']/following-sibling::span[contains(@class,'br-status') and (contains(text(),'Canceled'))]")).getText();
+		}else{
+			getTextProperty = driver.getDriverInstance().findElement(By.xpath(".//*[text()='"+campaignName+"']/following-sibling::span[contains(@class,'br-status') and not(contains(text(),'Canceled'))]")).getText();
+		}
 		assertTrue(getTextProperty.equals(status), "The Status "+ status +" does not match with the actual " + getTextProperty);
 	}
 	
@@ -491,6 +465,13 @@ public class CampaignTestSteps extends AbstractSteps{
 	public void cancel_the_campaign_name(String name) {
 		TestDriver<WebDriver> driver = (TestDriver<WebDriver>) Actions.getTestDriver();
 		driver.getDriverInstance().findElement(By.xpath(".//*[text()='"+name+"']/parent::section/following-sibling::section/button[contains(@class,'Cancel')]")).click();
+	}
+	
+	@And("^Cancel the '(.+)' Campaign Name from key$")
+	public void cancel_the_campaign_name_from_key(String key) {
+		TestDriver<WebDriver> driver = (TestDriver<WebDriver>) Actions.getTestDriver();
+		String campaignName = UIActions.GetStringTextInCacheContext(key).toString();
+		driver.getDriverInstance().findElement(By.xpath(".//*[text()='"+campaignName+"']/parent::section/following-sibling::section/button[contains(@class,'Cancel')]")).click();
 	}
 	
 	@And("^Analytics the '(.+)' Campaign Name$")

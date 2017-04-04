@@ -28,21 +28,21 @@ public class CampaignPageView {
 	public UIElement crearNuevaCampaniaBtn;
 	
 	//@ElementMap(how = How.XPATH, using = "//*[@id='campaignDetailsContainer']//div/input[@ng-model='Campaign.Name']")
-	@ElementMap(how = How.XPATH, using = ".//*[text()='*Campaign Name']/following-sibling::input", verify = true)
+	@ElementMap(how = How.XPATH, using = ".//*[text()='*Campaign Name']/following-sibling::input | .//*[text()='*Nombre de la Campaña']/following-sibling::input", verify = true)
 	public UIElement campaignNameTxt;
 	
 	@ElementMap(how = How.XPATH, using = "//*[@id='campaignDetailsContainer']//div/button[@ng-click='onChangeEmail()']")
 	public UIElement emailChannelBtn;
 	
 	//@ElementMap(how = How.XPATH, using = "//*[@id='campaignDetailsContainer']//div/select[@ng-model='Campaign.CampaignLanguageModel']")
-	@ElementMap(how = How.XPATH, using = ".//*[text()='*Campaign Language']/following-sibling::select", verify = true)
+	@ElementMap(how = How.XPATH, using = ".//*[text()='*Campaign Language']/following-sibling::select | .//*[text()='*Idioma de la campaña']/following-sibling::select", verify = true)
 	public UIElement languageDrpdwn;
 	
-	@ElementMap(how = How.XPATH, using = ".//*[text()='*From (Name)']/following-sibling::select", verify = true)
+	@ElementMap(how = How.XPATH, using = ".//*[text()='*From (Name)']/following-sibling::select | .//*[text()='*De (Nombre)']/following-sibling::select", verify = true)
 	public UIElement  fromNameDrpdwn;
 	
 	//@ElementMap(how = How.XPATH, using = "//*[@id='Subject']")
-	@ElementMap(how = How.XPATH, using = ".//*[text()='*Email Subject']/parent::div/following-sibling::div[1]/input", verify = true)
+	@ElementMap(how = How.XPATH, using = ".//*[text()='*Email Subject']/parent::div/following-sibling::div[1]/input | .//*[text()='*Asunto']/parent::div/following-sibling::div[1]/input", verify = true)
 	public UIElement emailSubjectTxt;
 	
 	//@ElementMap(how = How.XPATH, using = "//div/button[contains(text(), 'Save & Continue')]")
@@ -118,7 +118,7 @@ public class CampaignPageView {
 	@ElementMap(how = How.XPATH, using = "//*[@id='editorBody']//li[1]/div[contains(@id, 'editoritem_')]")
 	public UIElement editorBodyItem;
 	
-	@ElementMap(how = How.XPATH, using = "//ul[@id='editorBody']//div/img[@style='display:block;']")
+	@ElementMap(how = How.XPATH, using = ".//img[@style='display:block;']")
 	public UIElement imagePlaceholder;
 	
 	@ElementMap(how = How.XPATH, using = "//*[@id='btnSelectedCustomImage']")
@@ -299,6 +299,9 @@ public class CampaignPageView {
 	
 	@ElementMap(how = How.XPATH, using = ".//button[contains(text(),'Skip')]", verify = true)
 	public UIElement skipBtn;
+	
+	@ElementMap(how = How.XPATH, using = ".//input[@value='Browse']", verify = true)
+	public UIElement browseBtn;
 }
 
 

@@ -37,8 +37,9 @@ Feature: Demo
     And I wait '10' seconds
     And I click on 'CampaignsListPageView.createNewCampaignSection'
     And Select value 'English' from dropdown 'CampaignPageView.languageDrpdwn'
-    And I type text 'AutomationTestCampaign2' on element 'CampaignPageView.campaignNameTxt'
-    And Put text 'AutomationTestCampaign2' with key 'CampaignName' in volatile context
+    Then I type text '#{volatileContext['newnewCampaignName']}' on element 'CampaignPageView.newCampaignNameTxt'
+  #  And I type text 'AutomationTestCampaign2' on element 'CampaignPageView.newCampaignNameTxt'
+#    And Put text 'AutomationTestCampaign2' with key 'newCampaignName' in volatile context
     And I click on 'CampaignPageView.clickHereIfThisCampaignWillHaveCouponsChecktbox'
     And I click on 'CampaignPageView.emailChannelBtn'
     And Select the '1' option from dropdown 'CampaignPageView.fromNameDrpdwn'
@@ -75,7 +76,8 @@ Feature: Demo
     And I wait '10' seconds
     And I click on 'CampaignPageView.contentBtn' with JS
     And I wait '3' seconds
-    And Drag the button scissors icon and Drop it anywhere over the template
+    When I drag 'CampaignPageView.imageBlockBtn' and drop it on 'CampaignPageView.editorBody'
+  #  And Drag the button scissors icon and Drop it anywhere over the template
     And I wait '3' seconds
     And I click on 'CampaignPageView.saveContinueBtn'
     Then Element 'CampaignPageView.textModal' has text 'Your template was successfully saved.'
@@ -91,10 +93,10 @@ Feature: Demo
     And I click on 'CampaignsListPageView.filterButton' with JS
     And I wait '5' seconds
     And Select the filber by 'Name'
-    And I type text with key 'CampaignName' on element 'CampaignsListPageView.filterTextbox' using cache context
+    And I type text with key 'newCampaignName' on element 'CampaignsListPageView.filterTextbox' using cache context
     And Press Enter by Filter
     And I wait '10' seconds
-    Then Validate the Status 'Launched' from key 'CampaignName' Campaign Name
+    Then Validate the Status 'Launched' from key 'newCampaignName' Campaign Name
     And I close current application
 
   Scenario: CAM004 - Validate  a Coupon (as restaurant manager)
@@ -118,7 +120,7 @@ Feature: Demo
     And I click on 'CampaignsListPageView.filterButton' with JS
     And I wait '5' seconds
     And Select the filber by 'Name'
-    And I type text with key 'CampaignName' on element 'CampaignsListPageView.filterTextbox' using cache context
+    And I type text with key 'newCampaignName' on element 'CampaignsListPageView.filterTextbox' using cache context
     And Press Enter by Filter
     And I wait '6' seconds
     And Analytics the 'AutomationTestCampaign2' Campaign Name
@@ -131,7 +133,6 @@ Feature: Demo
 
   Scenario: CAM008 - Extend a Campaign
     Given I open application 'applicationCampaign'
-    And Put text 'AutomationTestCampaign2' with key 'CampaignName' in volatile context
     Given I logged in successfully to Brinker using user 'User2'
     And I wait '3' seconds
     And I click on 'BrinkerLandingPageView.campaignsImg'
@@ -139,11 +140,11 @@ Feature: Demo
     And I click on 'CampaignsListPageView.filterButton' with JS
     And I wait '5' seconds
     And Select the filber by 'Name'
-    And I type text with key 'CampaignName' on element 'CampaignsListPageView.filterTextbox' using cache context
+    And I type text with key 'newCampaignName' on element 'CampaignsListPageView.filterTextbox' using cache context
     And I wait '2' seconds
     And Press Enter by Filter
     And I wait '5' seconds
-    And Edit the 'CampaignName' Campaign Name from key
+    And Edit the 'newCampaignName' Campaign Name from key
     And I wait '5' seconds
     And Set the End Date as today plus '3' day and End Time as Zero hours
     And I click on 'CampaignPageView.saveContinueBtn'
@@ -162,9 +163,9 @@ Feature: Demo
     And I click on 'CampaignsListPageView.filterButton' with JS
     And I wait '5' seconds
     And Select the filber by 'Name'
-    And I type text with key 'CampaignName' on element 'CampaignsListPageView.filterTextbox' using cache context
+    And I type text with key 'newCampaignName' on element 'CampaignsListPageView.filterTextbox' using cache context
     And I wait '2' seconds
     And Press Enter by Filter
     And I wait '5' seconds
-    Then Validate the Status 'Extended' from key 'CampaignName' Campaign Name
+    Then Validate the Status 'Extended' from key 'newCampaignName' Campaign Name
     And I close current application

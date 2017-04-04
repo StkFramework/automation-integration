@@ -108,11 +108,12 @@ public class ButtonElements{
 		String pathExecutable = pathProject + "src\\main\\resources\\executable\\UploadFile.exe";
 		pathProject = pathProject + "src\\test\\resources\\com\\brinker\\sa\\automation\\input\\"+ imageName;
 		Thread.sleep(1000);
-		TestDriver<WebDriver> driver = (TestDriver<WebDriver>) Actions.getTestDriver();
-		UIActions.ClickOnElementWithJS(element);
+	//	TestDriver<WebDriver> driver = (TestDriver<WebDriver>) Actions.getTestDriver();
+	//	UIActions.ClickOnElementWithJS(element);
+		UIActions.ClickOnElementWithActionPerformance(element);
 		Thread.sleep(1000);
-		WebElement input = driver.getDriverInstance().findElement(By.xpath(".//*[@id='categoriesGrid']/div[4]/table/tbody/tr/td[4]/div/div"));
-		new Actions(driver.getDriverInstance()).moveToElement(input).click().perform();
+//		WebElement input = driver.getDriverInstance().findElement(By.xpath(".//*[@id='categoriesGrid']/div[4]/table/tbody/tr/td[4]/div/div"));
+//		new Actions(driver.getDriverInstance()).moveToElement(input).click().perform();
 		
 	
 		
