@@ -132,6 +132,12 @@
 			<artifactId>spring-aspects</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		
+			<dependency>
+			<groupId>com.automation.softa</groupId>
+			<artifactId>softa</artifactId>
+			<version>1.0.0-R1</version>
+		</dependency>
 
 		
 

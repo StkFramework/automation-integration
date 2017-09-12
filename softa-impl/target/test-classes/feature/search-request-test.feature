@@ -11,7 +11,7 @@ Feature: login-test
 		Given I open application 'application1'
 		When I wait '5' seconds	
 			
-		When I type text 'jose.san' on element 'LoginPageView.userNameTxt'
+		When I type text 'test' on element 'LoginPageView.userNameTxt'
 		Then I type text 'XXXXX' on element 'LoginPageView.passwordTxt'
 		And I click on 'LoginPageView.submitBtn'
 		And I wait '10' seconds
