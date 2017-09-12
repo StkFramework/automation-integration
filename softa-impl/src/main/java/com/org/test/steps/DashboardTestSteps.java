@@ -30,8 +30,8 @@ public class DashboardTestSteps extends AbstractSteps{
 		
 		assertTrue(AppActions.OpenApplication("application1"));
 		assertTrue(AppActions.WaitForSeconds("5"));
-		assertTrue(UIActions.TypeTextOn(UIElementFactory.createElement("LoginPageView.userNameTxt"), "jose.san"));
-		assertTrue(UIActions.TypeTextOn(UIElementFactory.createElement("LoginPageView.passwordTxt"), "TePa181115"));
+		assertTrue(UIActions.TypeTextOn(UIElementFactory.createElement("LoginPageView.userNameTxt"), "test"));
+		assertTrue(UIActions.TypeTextOn(UIElementFactory.createElement("LoginPageView.passwordTxt"), "test"));
 		
 		assertTrue(UIActions.ClickOnElement(UIElementFactory.createElement("LoginPageView.submitBtn")));
 		
