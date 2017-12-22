@@ -38,7 +38,8 @@
 		<property name="applications" > 
 			<list>
 				<ref bean="application1"></ref>
-				<ref bean="application2"></ref>				 
+				<ref bean="application2"></ref>		
+				<ref bean="the_hub"></ref>			 
 			</list>
 		</property>			
 	</bean>
@@ -94,5 +95,17 @@
 			</props>
 		</property>
 	</bean>	
+	
+	<bean id ="the_hub"  class="com.softtek.automation.Application">
+		<property name="name" value="the_hub" />
+		<property name="environment" ref="executionEnvironment" />
+		<property name="properties">
+			<props>
+				<prop key="url.prod">https://www.facebook.com/</prop>
+				<prop key="url.test">http://connections.staples.com/profiles/html/searchProfiles.do#simpleSearch</prop>			
+				<prop key="url.uat">https://login.live.com</prop>				
+			</props>
+		</property>
+	</bean>
 	
 </beans>
