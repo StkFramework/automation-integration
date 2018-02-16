@@ -55,8 +55,11 @@ public class HubProfileTestSteps extends AbstractSteps{
 				UIActions.ClickOnElement(UIElementFactory.createElement("HubProfilePageView.directorySearchTextBox"));
 				assertTrue(AppActions.WaitForSeconds("5"));
 			//	UIActions.ClickOnElementWithJS(UIElementFactory.createElement("HubProfilePageView.nameProfileLink"));
-				
-				UIActions.ClickOnElement(".//span[contains(text(), '"+email+"')]/preceding-sibling::a", null);
+				if(email != ""){
+					UIActions.ClickOnElement(".//span[contains(text(), '"+email+"')]/preceding-sibling::a", null);
+				}else{
+					UIActions.ClickOnElementWithJS(UIElementFactory.createElement("HubProfilePageView.nameProfileLink"));
+				}
 			//	UIActions.ClickOnElement(UIElementFactory.createElement("HubProfilePageView.nameProfile2Link"));
 				assertTrue(AppActions.WaitForSeconds("6"));
 				if(driver.getDriverInstance().findElements(By.xpath(".//*[@id='cardHeader']/td/table/tbody/tr[1]/td[1]/a")).size() > 0){
