@@ -9,8 +9,14 @@ public class HubProfilePageView {
 	@ElementMap(how = How.XPATH, using = ".//*[@id='widget_dijit_form_TextBox_0']/div/input")
 	public UIElement directorySearchTextBox;
 	
-	@ElementMap(how = How.XPATH, using = ".//*[@id='com_ibm_social_personcard_widget_PersonWidget_0']/div[2]/div[1]")
+	@ElementMap(how = How.XPATH, using = ".//*[@id='inLineBusinessCard']/tbody/tr/td/h1/span/a")
+	public UIElement firtsNameProfileLink;
+	
+	@ElementMap(how = How.XPATH, using = ".//*[@id='com_ibm_social_personcard_widget_PersonWidget_0']/div[2]/div[1]/a")
 	public UIElement nameProfileLink;
+	
+	@ElementMap(how = How.XPATH, using = ".//*[@id='com_ibm_social_personcard_widget_PersonWidget_0']")
+	public UIElement nameProfile2Link;
 	
 	@ElementMap(how = How.XPATH, using = ".//*[@id='report-chain-sub-peopleManaged']/a", verify = true )
 	public UIElement peopleManagedLink;
@@ -41,4 +47,7 @@ public class HubProfilePageView {
 	
 	@ElementMap(how = How.XPATH, using = ".//*[@id='cardBody']/td/div[3]/p[2]", verify = true )
 	public UIElement areaLabel;
+	
+	@ElementMap(how = How.XPATH, using = ".//*[@id='aProfileHeader_Directory']/span", verify = true )
+	public UIElement directoryLink;
 }
