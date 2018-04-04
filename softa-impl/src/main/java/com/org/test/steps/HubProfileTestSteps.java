@@ -36,7 +36,7 @@ public class HubProfileTestSteps extends AbstractSteps{
 	private ExcelFunctions exFunctions;
 	
 	@When("^(?i:I Get the People Managed)$")
-	public void i_get_the_people_managed() throws Exception {	
+	public void i_get_the_people_managed() throws Exception {
 		TestDriver<WebDriver> driver = (TestDriver<WebDriver>) Actions.getTestDriver();
 		if(driver.getDriverInstance().findElements(By.xpath(".//*[@id='report-chain-sub-peopleManaged']/a")).size() > 0){
 			assertTrue(UIActions.ClickOnElement(UIElementFactory.createElement("HubProfilePageView.peopleManagedLink")));
@@ -106,7 +106,7 @@ public class HubProfileTestSteps extends AbstractSteps{
 			j=j++;
 			assertTrue(AppActions.WaitForSeconds("5"));
 			UIActions.MoveMouseOverElement(".//*[@id='rptStructTable']/tbody/tr["+(i+1)+"]/td[2]/div[1]/div/span/a", null);
-			assertTrue(AppActions.WaitForSeconds("1"));
+			assertTrue(AppActions.WaitForSeconds("3"));
 			ExecutionResult exResult =  UIActions.GetText(UIElementFactory.createElement("HubProfilePageView.firtsNameProfileLink"));
 			String name1stLevel = exResult.getObjectResult().toString();
 			exResult =  UIActions.GetText(UIElementFactory.createElement("HubProfilePageView.nameLabel"));
